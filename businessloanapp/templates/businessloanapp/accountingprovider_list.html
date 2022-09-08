@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounting Providers</title>
+</head>
+<body>
+    <h1>Accounting Providers</h1>
+<ul>
+{% for accounting_provider in object_list %}
+    <li>{{ accounting_provider.name }}</li>
+{% empty %}
+    <li>No accounting providers yet.</li>
+{% endfor %}
+</ul>
+</body>
+</html>

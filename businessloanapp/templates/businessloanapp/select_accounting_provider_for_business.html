@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Balance Sheet From Accounting Provider for business "{{business.name}}</title>
+</head>
+<body>
+    <h1>Request Balance Sheet From Accounting Provider for business "{{business.name}}"</h1>
+<ul>
+{% for accounting_provider in object_list %}
+    <li>{{ accounting_provider.name }}
+        <button onclick="location.href='{% url 'request_balance_sheet_from_accounting_provider' business.pk accounting_provider.pk %}'">
+            Request Balance Sheet
+        </button></li>
+{% empty %}
+    <li>No accounting providers yet.
+        <button onclick="location.href='{% url 'new_accounting_provider' %}'">
+            Create new Accounting Provider
+        </button>
+    </li>
+{% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance sheets</title>
+</head>
+<body>
+    <h1>Balance Sheets</h1>
+<ul>
+{% for balance_sheet in object_list %}
+    <li style="display: flex">
+        <div style="width:10%">
+            {{ balance_sheet.business.name }}
+        </div>
+        <div style="width:10%">
+            {{ balance_sheet.accounting_provider.name }}
+        </div>
+        <div style="width:33%">
+            {{ balance_sheet.balance_sheet }}
+        </div>
+    </li>
+    <hr>
+{% empty %}
+    <li>No businesses yet.</li>
+{% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Businesses</title>
+</head>
+<body>
+    <h1>Businesses</h1>
+<ul>
+{% for business in object_list %}
+    <li>{{ business.name }}</li>
+{% empty %}
+    <li>No businesses yet.</li>
+{% endfor %}
+</ul>
+</body>
+</html>

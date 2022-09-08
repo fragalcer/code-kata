@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Loan</title>
+</head>
+<body>
+    <h1>Request Loan</h1>
+<ul>
+{% for balance_sheet in object_list %}
+    <li style="display: flex">
+        <div style="width:10%">
+            {{ balance_sheet.business.name }}
+        </div>
+        <div style="width:10%">
+            {{ balance_sheet.accounting_provider.name }}
+        </div>
+        <div style="width:33%">
+            {{ balance_sheet.balance_sheet }}
+        </div>
+        <div style="width:33%">
+            <button onclick="location.href='{% url 'request_loan' business.pk accounting_provider.pk %}'">Request Loan</button>
+        </div>
+    </li>
+    <hr>
+{% empty %}
+    <li>Business {{ business }} does not have any Balance Sheets with {{ accounting_provider }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
