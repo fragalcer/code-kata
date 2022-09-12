@@ -1,0 +1,12 @@
+- model: businessloanapp.balancesheet
+  pk: 1
+  fields:
+    business: 1
+    accounting_provider: 1
+    url: http://127.0.0.1:8001/balancesheet/1
+- model: businessloanapp.balancesheet
+  pk: 2
+  fields:
+    business: 2
+    accounting_provider: 2
+    url: http://127.0.0.1:8002/balancesheet/2

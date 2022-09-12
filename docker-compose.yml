@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   db:
     image: postgres
     volumes:
@@ -9,11 +10,14 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-  web:
+
+  backend:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+    expose:
+      - 8000
     ports:
       - "8000:8000"
     environment:
@@ -22,3 +26,49 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+
+  myob:
+    build:
+      context: ./myob
+      dockerfile: Dockerfile
+    volumes:
+      - ./myob:/myob
+    expose:
+      - 8001
+    ports:
+      - "8001:8001"
+
+  xero:
+    build:
+      context: ./xero
+      dockerfile: Dockerfile
+    volumes:
+      - ./xero:/xero
+    expose:
+      - 8002
+    ports:
+      - "8002:8002"
+
+  decisionengine:
+    build:
+      context: ./decisionengine
+      dockerfile: Dockerfile
+    volumes:
+      - ./decisionengine:/decisionengine
+    expose:
+      - 8003
+    ports:
+      - "8003:8003"

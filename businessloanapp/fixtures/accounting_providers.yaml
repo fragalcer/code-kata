@@ -1,0 +1,10 @@
+- model: businessloanapp.accountingprovider
+  pk: 1
+  fields:
+    name: MYOB
+    logo: MYOB_logo.png
+- model: businessloanapp.accountingprovider
+  pk: 2
+  fields:
+    name: XERO
+    logo: XERO_logo.png

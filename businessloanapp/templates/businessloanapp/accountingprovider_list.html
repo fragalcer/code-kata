@@ -6,12 +6,13 @@
 </head>
 <body>
     <h1>Accounting Providers</h1>
-<ul>
-{% for accounting_provider in object_list %}
-    <li>{{ accounting_provider.name }}</li>
-{% empty %}
-    <li>No accounting providers yet.</li>
-{% endfor %}
-</ul>
+    <dl>
+        {% for accounting_provider in object_list %}
+            <dt>{{ accounting_provider.name }}</dt>
+            <dd><img src="{{ accounting_provider.logo.url }}" height="250" alt="accounting provider logo"></dd>
+    {% empty %}
+        No accounting providers yet.
+    {% endfor %}
+    </dl>
 </body>
 </html>

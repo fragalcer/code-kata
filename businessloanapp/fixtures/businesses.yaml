@@ -1,0 +1,10 @@
+- model: businessloanapp.business
+  pk: 1
+  fields:
+    name: Coles
+    loan_amount: 5000
+- model: businessloanapp.business
+  pk: 2
+  fields:
+    name: Woolworths
+    loan_amount: 100000
